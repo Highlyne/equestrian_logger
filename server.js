@@ -1,8 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
-var path = require("path");
-
 // Sets up the Express App to create server
 // =============================================================
 var app = express();
@@ -16,20 +14,15 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 
 // =============================================================
 
-// app.use('public',express.static(__dirname + '/public'));
+app.use('public',express.static("public"));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// Import routes and give the server access to them.
+var routes = require("/controllers/catsController.js");
 
-app.get("/", function(req, res) {
-    connection.query("SELECT * FROM ponies;", function(err, data) {
-        if (err) throw err;
-    res.render("index", {ponies: data});
-})
-});
-
-
+app.use(routes);
 
 // Starts the server to begin listening
 // =============================================================

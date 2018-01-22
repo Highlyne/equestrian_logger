@@ -19,5 +19,5 @@ var myPony = {
     }
   };
   
-  // Export the database functions for the controller (catsController.js).
+  // Export the object for the controller (ponyController.js).
   module.exports = myPony;
