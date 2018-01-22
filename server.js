@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var connection = require("./config/connections.js");
 var path = require("path");
 
 // Sets up the Express App to create server
@@ -15,27 +16,20 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 
 // =============================================================
 
-app.use('public',express.static(__dirname + '/public'));
+// app.use('public',express.static(__dirname + '/public'));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
 app.get("/", function(req, res) {
-    connection.query("SELECT * FROM students;", function(err, data) {
+    connection.query("SELECT * FROM ponies;", function(err, data) {
         if (err) throw err;
-    res.render("index", {students: data});
+    res.render("index", {ponies: data});
 })
 });
 
-app.post("/", function(req, res) {
-    // Test it
-    console.log('You sent, ' + req.body.name_input);
-connection.query("INSERT INTO students (name, phone) VALUES (?)", [req.body.name_input], function(err, result) {
-    if (err) throw err;
-    res.redirect("/");
-  });
-});
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
