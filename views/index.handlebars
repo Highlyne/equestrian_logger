@@ -12,9 +12,15 @@
    <br>
    <ul>
   {{#each ponies}}
+  {{#unless ride}}
   	<li>
   	   <b>ID:{{this.id}}</b>  Pony Name: {{this.pony_name}}
   	</li>
+      
+      <form action="/" method="POST">
+      <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Let's Go!"></button>
+  </form>
+  {{/unless}}
   {{/each}}
 </ul>
     </div>
@@ -26,9 +32,11 @@
  <br>
       <ul>
   {{#each ponies}}
+  {{#if ride}}
   	<li>
   	   <b>ID:{{this.id}}</b>  Pony Name: {{this.pony_name}}
   	</li>
+      {{/if}}
   {{/each}}
 </ul>
     </div>
