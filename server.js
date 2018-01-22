@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var connection = require("./config/connections.js");
+
 var path = require("path");
 
 // Sets up the Express App to create server
