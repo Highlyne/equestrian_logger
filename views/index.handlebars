@@ -1,0 +1,68 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Welcome</h1>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+   <h3>Checked In</h3>
+    </div>
+    <div class="col">
+      
+    </div>
+    <div class="col">
+      <h3>Checked out</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ul>
+  {{#each students}}
+  	<li>
+  	   <b>ID:{{this.id}}</b>  Name: {{this.name}}
+       <p>phone: {{this.phone}}</p>
+  	</li>
+  {{/each}}
+</ul>
+    </div>
+    <div class="col">
+      
+    </div>
+    <div class="col">
+      3 of 3
+    </div>
+  </div>
+
+ <form action="/" method="POST">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" id="name_input" placeholder="Full name">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" id="phone_input" placeholder="Phone Number">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="You have been checked in. Thank you!">
+  Check in
+</button>
+    </div>
+    <div class="row">
+     <div class="col">
+      <input type="text" class="form-control" id="id" placeholder="ID:">
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="You have been checked in. Thank you!">
+  Check Out
+</button>
+    </div>
+    </div>
+  </div>
+</form>
+
+</div>
