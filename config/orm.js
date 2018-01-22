@@ -14,7 +14,7 @@ var orm= {
 
     createOne: function(val, cb) {
         var queryString = "INSERT INTO ponies VALUES (?)"
-        connection.query(queryString, [newPonyNameVal], function(err,result) {
+        connection.query(queryString, [val], function(err,result) {
         if (err) {
       // If an error occurred, send a generic server faliure
       return res.status(500).end();
@@ -31,4 +31,4 @@ var orm= {
 }
 
 };
-module.exports
+module.exports = orm;
