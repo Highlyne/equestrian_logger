@@ -6,7 +6,7 @@ var express = require("express");
 var router = express.Router();
 
 // Import the model (pony.js) to use its database functions.
-var myPony = require("/models/pony.js");
+var myPony = require("../models/pony.js");
 
 // Create all the routes and set up logic within those routes where required.
 router.get("/", function(req, res) {

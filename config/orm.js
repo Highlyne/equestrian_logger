@@ -1,4 +1,4 @@
-var connection = require("/connections.js");
+var connection = require("./connections.js");
 // ORM object for all SQL functions
 var orm= {
 //  All functions include a callback to make sure it is handled in a synchronized order
