@@ -19,13 +19,16 @@
   {{#each ponies}}
   {{#unless ride}}
   	<li>
-  	   <b>ID:{{this.id}}</b>  Pony Name: {{this.pony_name}} <button type="submit" data-id="{{this.id}}" a href="/ride">Ride This Pony</button>
+  	   <b>ID:{{this.id}}</b>  Pony Name: {{this.pony_name}}<form class="ride-form" method="POST" action="/ride">
+        <input type="hidden" name="dataid" value="{{this.id}}">
+        <button type="submit">Ride</button></form>
   	</li>
   {{/unless}}
   {{/each}}
 </ul>
     </div>
     <div class="col-sm-2">
+       
       
     </div>
     <div class="col-sm-5">
@@ -51,11 +54,11 @@
     </div>
     <div class="col-sm-2"></div>
     <div class="<col-sm-5">
-    <h2> Change a pony name</h2>
-    <form class="create-form" action="/update?_method=PUT">
+    {{!-- <h2> Change a pony name</h2> --}}
+    {{!-- <form class="create-form" action="/update" method="POST">
         <input type="text" name="id" placeholder="ID">
         <textarea type="text" name="newPonyNM" placeholder="Type new pony name"></textarea>
-        <button type="submit">Add Pony</button>
+        <button type="submit">Add Pony</button> --}}
     </div>
 </div>
 </div>

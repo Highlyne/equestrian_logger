@@ -28,7 +28,7 @@ router.post("/add", function(req, res) {
   
       });
   
-router.put("/update", function(req, res) {
+router.post("/update", function(req, res) {
     connection.query("UPDATE ponies SET pony_name = ? WHERE id = ?", [req.body.newPonyNM, req.body.id], function(err,results) {
         if (err) throw err;
         console.log("Update: " + res);
@@ -36,8 +36,10 @@ router.put("/update", function(req, res) {
     })
 });
 
-router.put("/ride", function(req, res){
-    connection.query("UPDATE ponies SET ride = 1 WHERE id = ?", [req.body.data-id], function(err, results) {
+router.post("/ride", function(req, res){
+    console.log(req.body.dataid);
+    console.log("hello world");
+    connection.query("UPDATE ponies SET ride = 1 WHERE id = ?", [req.body.dataid], function(err, results) {
         if (err) throw err;
         res.redirect("/");
     })
