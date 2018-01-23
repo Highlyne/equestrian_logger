@@ -1,25 +1,26 @@
+<style>
+       body {
+           background: yellowgreen;
+       }
 
+</style>
 <div class="container">
   <div class="row">
-    <div class="col-sm-8">
-      <h1>Welcome</h1>
+    <div class="col-sm-10">
       <br>
+      <img src="https://lh3.googleusercontent.com/uax8IVuNw8GWiRMuAJdHK8GaJFqlTtjsS0wrMcJxjCXWvSRk74BlQVb0X_34p1O4Jg=h310"><br>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-5">
-   <h3>Checked In</h3>
+   <h3>Ponies waiting for a Rider</h3>
    <br>
    <ul>
   {{#each ponies}}
   {{#unless ride}}
   	<li>
-  	   <b>ID:{{this.id}}</b>  Pony Name: {{this.pony_name}}
+  	   <b>ID:{{this.id}}</b>  Pony Name: {{this.pony_name}} <button type="submit" data-id="{{this.id}}" a href="/ride">Ride This Pony</button>
   	</li>
-      
-      <form action="/" method="POST">
-      <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Let's Go!"></button>
-  </form>
   {{/unless}}
   {{/each}}
 </ul>
@@ -28,7 +29,7 @@
       
     </div>
     <div class="col-sm-5">
-      <h3>Checked out</h3>
+      <h3>Ponies in the barn</h3>
  <br>
       <ul>
   {{#each ponies}}
@@ -41,22 +42,20 @@
 </ul>
     </div>
     </div>
-  </div>
-
- <form action="/" method="POST">
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" id="name_input" placeholder="Pony name">
+<div class="row">
+    <div class="col-sm-5">
+    <h2> Add a pony</h2>
+    <form class="create-form" method="POST" action="/add">
+        <textarea type="text" name="newPony" placeholder="Add New Pony name here"></textarea>
+        <button type="submit">Add Pony</button>
     </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col">
-      <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="You have been checked in. Thank you!">
-  Check in
-</button>
+    <div class="col-sm-2"></div>
+    <div class="<col-sm-5">
+    <h2> Change a pony name</h2>
+    <form class="create-form" action="/update?_method=PUT">
+        <input type="text" name="id" placeholder="ID">
+        <textarea type="text" name="newPonyNM" placeholder="Type new pony name"></textarea>
+        <button type="submit">Add Pony</button>
     </div>
-    </div>
-</form>
-
+</div>
 </div>
